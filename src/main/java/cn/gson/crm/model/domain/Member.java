@@ -25,7 +25,7 @@ public class Member {
     private String userName;
 
     @Column(length = 128, nullable = false)
-    @JsonIgnore//json序列化的时候，忽略密码字段
+    @JsonIgnore // json序列化的时候，忽略密码字段
     private String password;
 
     @Column(length = 64, nullable = false)
@@ -53,12 +53,8 @@ public class Member {
     private Boolean status = false;
 
     @ManyToMany(targetEntity = Role.class)
-    @JoinTable(name = "crm_member_role",
-            joinColumns = {
-                    @JoinColumn(name = "member_id")
-            }, inverseJoinColumns = {
-            @JoinColumn(name = "role_id")
-    })
+    @JoinTable(name = "crm_member_role", joinColumns = { @JoinColumn(name = "member_id") }, inverseJoinColumns = {
+            @JoinColumn(name = "role_id") })
     private List<Role> roles;
 
     public Long getId() {
